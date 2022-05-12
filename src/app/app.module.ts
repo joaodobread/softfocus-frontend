@@ -16,13 +16,15 @@ import { LayoutComponent } from './shared/layout/layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
 import { LogoutComponent } from './shared/logout/logout.component';
+import { LossCommunicationModule } from './loss-communication/loss-communication.module';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent, LogoutComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     NbLayoutModule,
     NbEvaIconsModule,
@@ -60,6 +62,8 @@ import { LogoutComponent } from './shared/logout/logout.component';
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbThemeModule.forRoot({ name: 'default' }),
+    LossCommunicationModule,
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

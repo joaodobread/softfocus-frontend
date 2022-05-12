@@ -4,6 +4,11 @@ Leaflet.Marker.prototype.options.icon = new Leaflet.Icon({
     'https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/images/marker-icon.png',
   shadowUrl:
     'https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41],
 });
 
 import { enableProdMode } from '@angular/core';

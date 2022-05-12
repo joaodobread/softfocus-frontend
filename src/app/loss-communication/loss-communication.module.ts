@@ -1,17 +1,32 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddLossCommunicationComponent } from './add-loss-communication/add-loss-communication.component';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  NbDatepickerModule,
+  NbInputModule,
+  NbSpinnerModule,
+} from '@nebular/theme';
+import { ComponentsModule } from '../components/components.module';
+
 import { ListAllLossCommunicationComponent } from './list-all-loss-communication/list-all-loss-communication.component';
-
-
+import { LossCommunicationDetailsComponent } from './loss-communication-details/loss-communication-details.component';
 
 @NgModule({
   declarations: [
-    AddLossCommunicationComponent,
-    ListAllLossCommunicationComponent
+    ListAllLossCommunicationComponent,
+    LossCommunicationDetailsComponent,
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    NbInputModule,
+    ComponentsModule,
+    NbSpinnerModule,
+    NbDatepickerModule.forRoot(),
+  ],
 })
-export class LossCommunicationModule { }
+export class LossCommunicationModule {}

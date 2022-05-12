@@ -1,1 +1,24 @@
-<p>list-all-loss-communication works!</p>
+<table class="table highlight">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Farmer Name</th>
+      <th>Farmer Document</th>
+      <th>Farmer Email</th>
+      <th>Analyst Name</th>
+      <th>Harvest Date</th>
+      <th>Couse of Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loss of lossCommunication" (click)="seeDetails(loss.id)">
+      <td>{{ loss.id }}</td>
+      <td>{{ loss.farmerName }}</td>
+      <td>{{ loss.farmerDocument }}</td>
+      <td>{{ loss.farmerEmail }}</td>
+      <td>{{ loss.analyst.name }}</td>
+      <td>{{ loss.harvestDate | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ loss.couseOfLoss }}</td>
+    </tr>
+  </tbody>
+</table>

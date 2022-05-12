@@ -1,0 +1,41 @@
+<div *ngIf="loading;else loaded" class="row">
+  <div class="ml-2">Carregando...</div>
+</div>
+
+<ng-template #loaded>
+  <form>
+    <div class="form-row">
+      <div class="form-group mb-3">
+        <label for="">Farmer Name</label>
+        <input disabled nbInput [value]="lossCommunication.farmerName" fullWidth type="text" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label for="">Farmer email</label>
+        <input disabled nbInput [value]="lossCommunication.farmerEmail" fullWidth type="text" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label for="">Farmer Document</label>
+        <input disabled nbInput [value]="lossCommunication.farmerDocument" fullWidth type="text" class="form-control">
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="">Harvest Date</label>
+        <input disabled nbInput [value]="lossCommunication.harvestDate | date" fullWidth class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label for="">Analyst Name</label>
+        <input disabled nbInput [value]="lossCommunication.analyst.name" fullWidth type="text" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label for="">Analyst Email</label>
+        <input disabled nbInput [value]="lossCommunication.analyst.email" fullWidth type="text" class="form-control">
+      </div>
+      <div class="form-group mb-3">
+        <label for="">Couse of Loss</label>
+        <input disabled nbInput [value]="lossCommunication.couseOfLoss" fullWidth type="text" class="form-control">
+      </div>
+    </div>
+    <app-map-view [latitude]="lossCommunication.location.coordinates[0]"
+      [longitude]="lossCommunication.location.coordinates[1]"></app-map-view>
+  </form>
+</ng-template>
