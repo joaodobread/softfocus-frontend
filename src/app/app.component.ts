@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
     const map = Leaflet.map('map', {
       center: [43, 19],
       zoom: 4,
+      scrollWheelZoom: false,
+      zoomControl: false,
+      touchZoom: false,
+      dragging: false,
     });
 
     Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
