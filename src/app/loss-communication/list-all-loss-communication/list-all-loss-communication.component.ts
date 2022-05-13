@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LossCommunication } from '../entity/loss-communication';
+import { getCouseOfLoss } from '../enum/couse-of-loss';
 import { LossCommunicationService } from '../loss-communication.service';
 
 @Component({
@@ -22,5 +23,9 @@ export class ListAllLossCommunicationComponent implements OnInit {
 
   seeDetails(id: string) {
     this.router.navigate(['/dashboard', 'loss-communication-details', id]);
+  }
+
+  couseOfLoss(couseOfLoss: string) {
+    return getCouseOfLoss(couseOfLoss);
   }
 }

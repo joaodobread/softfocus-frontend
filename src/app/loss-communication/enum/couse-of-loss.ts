@@ -15,3 +15,7 @@ export const causeOfLossMapping: { [x: string]: string } = {
   gale: 'Gale',
   ray: 'Ray',
 };
+
+export const getCouseOfLoss = (couse: string) => {
+  return causeOfLossMapping[couse];
+};

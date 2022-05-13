@@ -6,3 +6,60 @@
     </button>
   </div>
 </div>
+<br>
+<br>
+<div class="row">
+
+  <div class="col">
+    <form [formGroup]="addLossCommunicationForm" class="row">
+      <div class="form-group col-12">
+        <label required class="input-label">Farmer name</label>
+        <input type="text" required nbInput fullWidth class="form-control" formControlName="farmerName">
+      </div>
+      <div class="form-group col-12">
+        <label required class="input-label">Farmer email</label>
+        <input type="email" required nbInput fullWidth class="form-control" formControlName="farmerEmail">
+      </div>
+      <div class="form-group col-12">
+        <label class="input-label">Farmer Document (CPF)</label>
+        <input type="text" nbInput required fullWidth class="form-control" formControlName="farmerDocument"
+          mask="000.000.000-99" [showMaskTyped]="true">
+      </div>
+      <div class="form-group col-12">
+        <label class="input-label">Harvest date</label>
+        <input nbInput fullWidth required class="form-control" formControlName="harvestDate"
+          [nbDatepicker]="datepicker">
+        <nb-datepicker #datepicker></nb-datepicker>
+      </div>
+      <div class="form-group col-12">
+        <label class="input-label">Couse Of Loss</label>
+        <nb-select fullWidth formControlName="couseOfLoss" required selected="">
+          <nb-option value="" selected disabled>Select an Option</nb-option>
+          <nb-option value="excessive_rain">Excessive Rain</nb-option>
+          <nb-option value="frost">Frost</nb-option>
+          <nb-option value="hail">Hail</nb-option>
+          <nb-option value="dry">Dry</nb-option>
+          <nb-option value="gale">Gale</nb-option>
+          <nb-option value="ray">Ray</nb-option>
+        </nb-select>
+      </div>
+      <div class="form-group col-6">
+        <label class="input-label">Latitude</label>
+        <input type="number" nbInput required fullWidth class="form-control" formControlName="lat" min="-90" max="90">
+      </div>
+      <div class="form-group col-6">
+        <label class="input-label">Longitude</label>
+        <input type="number" nbInput required fullWidth class="form-control" formControlName="long" min="-180"
+          max="180">
+      </div>
+    </form>
+  </div>
+
+  <div class="col-12 mt-2">
+    <button nbButton status="success" (click)="sendForm()">
+      <nb-icon icon="done-all-outline"></nb-icon>
+      Save
+    </button>
+  </div>
+
+</div>

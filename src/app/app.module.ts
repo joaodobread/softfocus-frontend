@@ -49,7 +49,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
             },
           },
           register: {
-            endpoint: '/auth/analyst',
+            endpoint: '/analysts',
+            requireValidToken: false,
+            redirect: {
+              success: 'login',
+            },
           },
         }),
       ],
@@ -61,6 +65,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
             success: true,
             error: true,
           },
+        },
+        register: {
+          terms: false,
         },
       },
     }),

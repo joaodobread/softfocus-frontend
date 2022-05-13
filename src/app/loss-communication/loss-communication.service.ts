@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { NbAuthService } from '@nebular/auth';
 import { firstValueFrom } from 'rxjs';
 import { AddLossConflict } from './contracts/service/add-loss-communication';
+import { UpdateLossConflict } from './contracts/service/edit-loss-communication';
 import { VerifyConflictsService } from './contracts/service/verify-conflicts';
 import { ApiLossCommunicationResponse } from './entity/api-loss-communication-response';
 import { LossCommunication } from './entity/loss-communication';
 import { LossCommunicationConflic } from './entity/loss-communication-conflicts';
-import { causeOfLossMapping } from './enum/couse-of-loss';
 
 @Injectable({
   providedIn: 'root',
@@ -26,15 +26,11 @@ export class LossCommunicationService {
     });
   }
 
-  getCouseOfLoss(couse: string) {
-    return causeOfLossMapping[couse];
-  }
-
   parseDefaultLoss(loss: ApiLossCommunicationResponse): LossCommunication {
     return <LossCommunication>{
       analyst: loss.analyst,
       analystsId: loss.analysts_id,
-      couseOfLoss: this.getCouseOfLoss(loss.couse_of_loss),
+      couseOfLoss: loss.couse_of_loss,
       createdAt: loss.created_at,
       deleted: loss.deleted,
       farmerDocument: loss.farmer_document,
@@ -121,5 +117,30 @@ export class LossCommunicationService {
         headers: { authorization: `Bearer ${this.accessToken}` },
       })
     );
+  }
+
+  async update(
+    params: UpdateLossConflict.Params
+  ): Promise<UpdateLossConflict.Response> {
+    const payload = <UpdateLossConflict.UpdateLossCommunicationApiPayload>{
+      couse_of_loss: params.payload.couseOfLoss,
+      farmer_document: params.payload.farmerDocument,
+      farmer_email: params.payload.farmerEmail,
+      farmer_name: params.payload.farmerName,
+      harvest_date: params.payload.harvestDate,
+      location: {
+        lat: params.payload.lat,
+        long: params.payload.long,
+      },
+    };
+    const response$ = this.http.put<UpdateLossConflict.Response>(
+      `${this.url}/${params.id}`,
+      payload,
+      {
+        headers: { authorization: `Bearer ${this.accessToken}` },
+      }
+    );
+    const result = await firstValueFrom<UpdateLossConflict.Response>(response$);
+    return result;
   }
 }

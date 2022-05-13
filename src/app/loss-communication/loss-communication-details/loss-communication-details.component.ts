@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { LossCommunication } from '../entity/loss-communication';
-import { causeOfLossMapping } from '../enum/couse-of-loss';
+import { causeOfLossMapping, getCouseOfLoss } from '../enum/couse-of-loss';
 import { LossCommunicationService } from '../loss-communication.service';
 
 @Component({
@@ -54,5 +54,9 @@ export class LossCommunicationDetailsComponent implements OnInit {
       'loss-communication-edit',
       this.lossCommunicationId,
     ]);
+  }
+
+  couseOfLoss() {
+    return getCouseOfLoss(this.lossCommunication.couseOfLoss);
   }
 }

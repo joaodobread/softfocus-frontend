@@ -25,13 +25,13 @@ export class AddLossCommunicationComponent implements OnInit {
 
   ngOnInit(): void {
     this.addLossCommunicationForm = this.fb.group({
-      farmerName: ['Carol', [Validators.required]],
-      farmerEmail: ['carol@email.com', [Validators.required, Validators.email]],
-      farmerDocument: ['261.891.930-05', [Validators.required]],
-      harvestDate: [new Date('2022-05-11 01:46:14.356'), [Validators.required]],
-      couseOfLoss: ['ray', [Validators.required]],
-      long: [1, [Validators.required]],
-      lat: [10, [Validators.required]],
+      farmerName: ['', [Validators.required]],
+      farmerEmail: ['', [Validators.required, Validators.email]],
+      farmerDocument: ['', [Validators.required]],
+      harvestDate: [new Date(), [Validators.required]],
+      couseOfLoss: ['', [Validators.required]],
+      long: [0, [Validators.required]],
+      lat: [0, [Validators.required]],
     });
   }
 

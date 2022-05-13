@@ -37,7 +37,7 @@
     </div>
     <div class="form-group mb-3">
       <label for="">Couse of Loss</label>
-      <input disabled nbInput [value]="lossCommunication.couseOfLoss" fullWidth type="text" class="form-control">
+      <input disabled nbInput [value]="couseOfLoss()" fullWidth type="text" class="form-control">
     </div>
   </div>
   <app-map-view [latitude]="lossCommunication.location.coordinates[0]"

@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NbAuthComponent, NbLoginComponent } from '@nebular/auth';
+import {
+  NbAuthComponent,
+  NbLoginComponent,
+  NbRegisterComponent,
+} from '@nebular/auth';
 import { JwtGuard } from './auth/jwt.guard';
 import { AddLossCommunicationComponent } from './loss-communication/add-loss-communication/add-loss-communication.component';
 import { ListAllLossCommunicationComponent } from './loss-communication/list-all-loss-communication/list-all-loss-communication.component';
@@ -25,6 +29,10 @@ const routes: Routes = [
       {
         path: 'logout',
         component: LogoutComponent,
+      },
+      {
+        path: 'register',
+        component: NbRegisterComponent,
       },
     ],
   },

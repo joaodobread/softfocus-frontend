@@ -18,7 +18,7 @@
       <td>{{ loss.farmerEmail }}</td>
       <td>{{ loss.analyst.name }}</td>
       <td>{{ loss.harvestDate | date: 'dd/MM/yyyy' }}</td>
-      <td>{{ loss.couseOfLoss }}</td>
+      <td>{{ couseOfLoss(loss.couseOfLoss) }}</td>
     </tr>
   </tbody>
 </table>
