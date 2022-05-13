@@ -20,7 +20,7 @@ export class MapViewComponent implements OnInit {
   ngOnInit(): void {
     this.map = Leaflet.map('map', {
       center: [this.latitude, this.longitude],
-      zoom: 3,
+      zoom: 11,
       scrollWheelZoom: false,
       zoomControl: false,
       touchZoom: false,

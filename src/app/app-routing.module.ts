@@ -5,6 +5,7 @@ import { JwtGuard } from './auth/jwt.guard';
 import { AddLossCommunicationComponent } from './loss-communication/add-loss-communication/add-loss-communication.component';
 import { ListAllLossCommunicationComponent } from './loss-communication/list-all-loss-communication/list-all-loss-communication.component';
 import { LossCommunicationDetailsComponent } from './loss-communication/loss-communication-details/loss-communication-details.component';
+import { LossCommunicationEditComponent } from './loss-communication/loss-communication-edit/loss-communication-edit.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { LogoutComponent } from './shared/logout/logout.component';
 
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: 'loss-communication-details/:id',
         component: LossCommunicationDetailsComponent,
+      },
+      {
+        path: 'loss-communication-edit/:id',
+        component: LossCommunicationEditComponent,
       },
     ],
   },
