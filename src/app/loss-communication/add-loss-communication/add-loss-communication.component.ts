@@ -71,6 +71,12 @@ export class AddLossCommunicationComponent implements OnInit {
   }
 
   async validateLocationAndSave() {
+    if (!this.addLossCommunicationForm.valid) {
+      this.toastrService.warning("Some fields aren't valid", 'Invalid Form', {
+        icon: '',
+      });
+      return;
+    }
     const { length: conflicsLength } = await this.verifyConflictsOnLatLong();
     if (conflicsLength) {
       return;
